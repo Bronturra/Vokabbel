@@ -14,4 +14,8 @@ final ThemeData vokabbelTheme = ThemeData(
       fontFamily: 'Montserrat',
     ),
   ),
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(
+    backgroundColor: Colors.indigoAccent,
+    foregroundColor: Colors.white,
+  )
 );

@@ -4,13 +4,13 @@ import 'package:hello/widgets/sub_headline_widget.dart';
 
 import '../modules.dart';
 
-class VocabularySetsPage extends StatefulWidget {
-  const VocabularySetsPage({Key? key}) : super(key: key);
+class VocabularySetChapterPage extends StatefulWidget {
+  const VocabularySetChapterPage({Key? key}) : super(key: key);
   @override
-  State<VocabularySetsPage> createState() => _VocabularySetsPageState();
+  State<VocabularySetChapterPage> createState() => _VocabularySetChapterPageState();
 }
 
-class _VocabularySetsPageState extends State<VocabularySetsPage> {
+class _VocabularySetChapterPageState extends State<VocabularySetChapterPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class _VocabularySetsPageState extends State<VocabularySetsPage> {
       body: Column(
         children: [
           const SubHeadlineWidget(text: "Spielerisch Sprachen lernen"),
-          const SubHeadlinePageWidget(text: "Vokabelsets"),
+          const SubHeadlinePageWidget(text: "Kapitel auswählen"),
           Expanded(
             child: ListView.builder(
               shrinkWrap: true,
@@ -40,13 +40,14 @@ class _VocabularySetsPageState extends State<VocabularySetsPage> {
                           margin: const EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 8.0),
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.of(context).pushNamed("/vocabularySetChapter");
+                              Navigator.of(context).pushNamed("/gameModeOverview");
+                              print("Clicked the Vocabulary Set!");
                             },
                             style: universalElevatedButtonStyle(),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                universalElevatedButtonText("Vokabelset $index"),
+                                universalElevatedButtonText("Kapitel $index"),
                                 const SizedBox(width: 135.0),
                                 const Icon(
                                   Icons.arrow_forward,
@@ -65,13 +66,6 @@ class _VocabularySetsPageState extends State<VocabularySetsPage> {
             ),
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print("Add some Vokabelsets");
-          //Navigator.of(context).pushNamed(destinationRoute);
-        },
-        child: const Icon(Icons.add),
       ),
     );
   }

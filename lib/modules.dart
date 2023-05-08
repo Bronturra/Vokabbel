@@ -215,9 +215,10 @@ ButtonStyle universalElevatedButtonStyle() {
   return ElevatedButton.styleFrom(
     alignment: Alignment.centerLeft,
     primary: Colors.white,
-    fixedSize: const Size(275.0, 100.0), // DO NOT CHANGE SIZE UNLESS YOU KNOW WHAT YOU DO!
+    fixedSize: const Size(275.0, 50.0), // DO NOT CHANGE SIZE UNLESS YOU KNOW WHAT YOU DO!
     shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.only(topLeft: Radius.circular(16.0), bottomLeft: Radius.circular(16.0)),
+      borderRadius: BorderRadius.all(Radius.circular(16.0)),
+      //borderRadius: BorderRadius.only(topLeft: Radius.circular(16.0), bottomLeft: Radius.circular(16.0)),
     ),
     textStyle: const TextStyle(
       //fontFamily: 'Montserrat',
