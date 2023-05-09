@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello/widgets/sub_headline_page_widget.dart';
+import 'package:hello/widgets/page_headline_widget.dart';
 import 'package:hello/widgets/sub_headline_widget.dart';
 
 import '../modules.dart';
@@ -25,7 +25,7 @@ class _GameModeOverviewPageState extends State<GameModeOverviewPage> {
       body: Column(
         children: [
           const SubHeadlineWidget(text: "Spielerisch Sprachen lernen"),
-          const SubHeadlinePageWidget(text: "Spiel wählen:"),
+          const PageHeadlineWidget(text: "Spiel wählen:"),
           Expanded(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,

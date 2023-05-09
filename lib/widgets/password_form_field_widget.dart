@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:hello/algorithms/password_validator.dart';
 
-
-
 class PasswordFormFieldWidget extends StatelessWidget {
+  // Variables
+  final GlobalKey<FormState> globalKey;
+  final TextEditingController globalController;
+  final String labelText;
+  final String hintText;
+  final String? errorMsg;
+  final Icon prefixIcon;
+  bool isPasswordObscured = true;
+
+  // Constructor
   PasswordFormFieldWidget({
     super.key,
     required this.globalKey,
@@ -14,17 +22,8 @@ class PasswordFormFieldWidget extends StatelessWidget {
     required this.prefixIcon,
   });
 
-  final GlobalKey<FormState> globalKey;
-  final TextEditingController globalController;
-  final String labelText;
-  final String hintText;
-  final String? errorMsg;
-  final Icon prefixIcon;
-  bool isPasswordObscured = true;
-
   @override
   Widget build(BuildContext context) {
-
     return StatefulBuilder(
       builder: (context, setState) => Container(
         padding: const EdgeInsets.fromLTRB(32.0, 8.0, 32.0, 16.0),
@@ -46,7 +45,8 @@ class PasswordFormFieldWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16.0),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: Colors.indigoAccent, width: 1.5),
+                borderSide:
+                    const BorderSide(color: Colors.indigoAccent, width: 1.5),
                 borderRadius: BorderRadius.circular(16.0),
               ),
               prefixIcon: prefixIcon,
@@ -64,14 +64,7 @@ class PasswordFormFieldWidget extends StatelessWidget {
             ),
             textInputAction: TextInputAction.done,
             obscureText: isPasswordObscured,
-            // Validator for email/password Inputfield
             validator: (source) {
-              // Validator for Password Inputfield
-              /*if (!isFirstPassword && source!.length > 5 && source.isNotEmpty) {
-                if (globalController.text.compareTo(globalControllerTwo.text) != 0) {
-                  return 'Die Passwörter stimmen nicht überein.';
-                }
-              }*/
               return PasswordValidator.validate(source!);
             },
           ),

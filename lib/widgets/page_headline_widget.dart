@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
-class SubHeadlinePageWidget extends StatelessWidget {
-  const SubHeadlinePageWidget({
+class PageHeadlineWidget extends StatelessWidget {
+  // Variables
+  final String text;
+
+  // Constructor
+  const PageHeadlineWidget({
     super.key,
     required this.text,
   });
-
-  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,6 @@ class SubHeadlinePageWidget extends StatelessWidget {
           fontSize: 24.0,
           color: Colors.indigoAccent,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Montserrat',
         ),
       ),
     );

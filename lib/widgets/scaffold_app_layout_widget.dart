@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello/widgets/sub_headline_page_widget.dart';
+import 'package:hello/widgets/page_headline_widget.dart';
 import 'package:hello/widgets/sub_headline_widget.dart';
 
 
@@ -30,7 +30,7 @@ class ScaffoldAppLayoutWidget extends StatelessWidget {
       body: Column(
         children: [
           const SubHeadlineWidget(text: "Spielerisch Sprachen lernen"),
-          SubHeadlinePageWidget(text: subname),
+          PageHeadlineWidget(text: subname),
           Expanded(
             child: buildListview,
           ),

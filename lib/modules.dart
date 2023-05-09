@@ -169,8 +169,8 @@ Text universalTextStyle(String textName, double fontSize) {
     textName,
     style: TextStyle(
       fontSize: fontSize,
-      //fontFamily: 'Montserrat',
-      fontWeight: FontWeight.bold,
+      fontFamily: 'Montserrat',
+      //fontWeight: FontWeight.bold,
     ),
   );
 }

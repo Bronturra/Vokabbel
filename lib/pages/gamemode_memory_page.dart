@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello/widgets/sub_headline_page_widget.dart';
+import 'package:hello/widgets/page_headline_widget.dart';
 import 'package:hello/widgets/sub_headline_widget.dart';
 
 import '../modules.dart';
@@ -24,8 +24,8 @@ class _GameModeMemoryPageState extends State<GameModeMemoryPage> {
       body: Column(
         children: [
           const SubHeadlineWidget(text: "Spielerisch Sprachen lernen"),
-          const SubHeadlinePageWidget(text: "Wörter Memory"),
-          const SubHeadlinePageWidget(text: "Runde 1/6"),
+          const PageHeadlineWidget(text: "Wörter Memory"),
+          const PageHeadlineWidget(text: "Runde 1/6"),
           Expanded(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,

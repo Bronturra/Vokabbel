@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 import '../algorithms/email_validator.dart';
 
 class FormFieldWidget extends StatelessWidget {
+  // Variables
+  final GlobalKey<FormState> globalKey;
+  final TextEditingController globalController;
+  final String labelText;
+  final String hintText;
+  final String? errorMsg;
+  final Icon prefixIcon;
+
+  // Constructor
   const FormFieldWidget({
     super.key,
     required this.globalKey,
@@ -11,13 +20,6 @@ class FormFieldWidget extends StatelessWidget {
     required this.errorMsg,
     required this.prefixIcon,
   });
-
-  final GlobalKey<FormState> globalKey;
-  final TextEditingController globalController;
-  final String labelText;
-  final String hintText;
-  final String? errorMsg;
-  final Icon prefixIcon;
 
   @override
   Widget build(BuildContext context) {

@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hello/widgets/elevated_button_widget.dart';
 import 'package:hello/widgets/form_field_widget.dart';
 import 'package:hello/widgets/password_form_field_widget.dart';
-import 'package:hello/widgets/sub_headline_page_widget.dart';
+import 'package:hello/widgets/page_headline_widget.dart';
 import 'package:hello/widgets/sub_headline_widget.dart';
-
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -48,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Column(
         children: [
           const SubHeadlineWidget(text: "Spielerisch Sprachen lernen"),
-          const SubHeadlinePageWidget(text: "Anmelden"),
+          const PageHeadlineWidget(text: "Anmelden"),
           Expanded(
             child: ListView(
               shrinkWrap: true,
@@ -59,18 +58,21 @@ class _LoginPageState extends State<LoginPage> {
                     labelText: "E-Mail:",
                     hintText: "name@example.com",
                     errorMsg: errorMsg,
-                    prefixIcon: const Icon(Icons.mail, color: Colors.indigoAccent)),
+                    prefixIcon:
+                        const Icon(Icons.mail, color: Colors.indigoAccent)),
                 PasswordFormFieldWidget(
                     globalKey: passwordGlobalKey,
                     globalController: passwordController,
                     labelText: "Passwort:",
                     hintText: "Dein Passwort...",
                     errorMsg: errorMsg,
-                    prefixIcon: const Icon(Icons.vpn_key, color: Colors.indigoAccent)),
+                    prefixIcon:
+                        const Icon(Icons.vpn_key, color: Colors.indigoAccent)),
                 ElevatedButtonWidget(
-                    labelText: "Anmelden", onPressedFunction: () => onPressedLogin()),
+                    text: "Anmelden",
+                    onPressedFunction: () => onPressedLogin()),
                 ElevatedButtonWidget(
-                    labelText: "Registrieren",
+                    text: "Registrieren",
                     onPressedFunction: () => onPressedRegistration()),
               ],
             ),
@@ -80,20 +82,18 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  /// Function that handles login process
   void onPressedLogin() {
-    // Widget Variables
+    // Variables
     final emailForm = emailGlobalKey.currentState!;
     final passwordForm = passwordGlobalKey.currentState!;
 
-    // Checks if the currently entered e-mail and password are valid
+    // Check if e-mail and password are valid
     if (emailForm.validate() && passwordForm.validate()) {
       setState(() => errorMsg = null);
       Navigator.pushNamed(context, "/vocabularySets");
     }
   }
 
-  /// Function that navigates to Registration-Page
   void onPressedRegistration() {
     Navigator.pushNamed(context, "/register");
   }

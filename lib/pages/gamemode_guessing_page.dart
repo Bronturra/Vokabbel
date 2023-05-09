@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello/widgets/sub_headline_page_widget.dart';
+import 'package:hello/widgets/page_headline_widget.dart';
 import 'package:hello/widgets/sub_headline_widget.dart';
 
 import '../modules.dart';
@@ -24,13 +24,13 @@ class _GameModeGuessingPageState extends State<GameModeGuessingPage> {
       body: Column(
         children: [
           const SubHeadlineWidget(text: "Spielerisch Sprachen lernen"),
-          const SubHeadlinePageWidget(text: "Wörter raten"),
-          const SubHeadlinePageWidget(text: "Runde 1/30"),
+          const PageHeadlineWidget(text: "Wörter raten"),
+          const PageHeadlineWidget(text: "Runde 1/30"),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const SubHeadlinePageWidget(text: "tear"),
+                const PageHeadlineWidget(text: "tear"),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

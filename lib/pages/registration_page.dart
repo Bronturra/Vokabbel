@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hello/widgets/elevated_button_widget.dart';
-import 'package:hello/widgets/elevated_cancel_button_widget.dart';
+import 'package:hello/widgets/cancel_elevated_button_widget.dart';
 import 'package:hello/widgets/form_field_widget.dart';
 import 'package:hello/widgets/password_form_field_widget.dart';
-import 'package:hello/widgets/sub_headline_page_widget.dart';
+import 'package:hello/widgets/page_headline_widget.dart';
 import 'package:hello/widgets/sub_headline_widget.dart';
 
 class RegistrationPage extends StatefulWidget {
@@ -20,7 +20,8 @@ class _RegistrationPage extends State<RegistrationPage> {
   final emailGlobalKey = GlobalKey<FormState>();
   final passwordGlobalKey = GlobalKey<FormState>();
   final passwordGlobalKeySecond = GlobalKey<FormState>();
-  String? errorMsg;
+  String? mailErrorMsg;
+  String? passwordErrorMsg;
 
   @override
   void initState() {
@@ -48,7 +49,7 @@ class _RegistrationPage extends State<RegistrationPage> {
       body: Column(
         children: [
           const SubHeadlineWidget(text: "Spielerisch Sprachen lernen"),
-          const SubHeadlinePageWidget(text: "Registrieren"),
+          const PageHeadlineWidget(text: "Registrieren"),
           Expanded(
             child: ListView(
               shrinkWrap: true,
@@ -58,7 +59,7 @@ class _RegistrationPage extends State<RegistrationPage> {
                     globalController: emailController,
                     labelText: "E-Mail:",
                     hintText: "name@example.com",
-                    errorMsg: errorMsg,
+                    errorMsg: mailErrorMsg,
                     prefixIcon:
                         const Icon(Icons.mail, color: Colors.indigoAccent)),
                 PasswordFormFieldWidget(
@@ -66,7 +67,7 @@ class _RegistrationPage extends State<RegistrationPage> {
                     globalController: passwordController,
                     labelText: "Passwort:",
                     hintText: "Dein Passwort...",
-                    errorMsg: errorMsg,
+                    errorMsg: passwordErrorMsg,
                     prefixIcon:
                         const Icon(Icons.vpn_key, color: Colors.indigoAccent)),
                 PasswordFormFieldWidget(
@@ -74,13 +75,13 @@ class _RegistrationPage extends State<RegistrationPage> {
                     globalController: passwordControllerSecond,
                     labelText: "Passwort wiederholen:",
                     hintText: "Dein Passwort wiederholen...",
-                    errorMsg: errorMsg,
+                    errorMsg: passwordErrorMsg,
                     prefixIcon:
                         const Icon(Icons.vpn_key, color: Colors.indigoAccent)),
                 ElevatedButtonWidget(
-                    labelText: "Registrieren",
+                    text: "Registrieren",
                     onPressedFunction: () => onPressedLogin()),
-                const ElevatedCancelButtonWidget(labelText: "Abbrechen"),
+                const CancelElevatedButtonWidget(text: "Abbrechen"),
               ],
             ),
           ),
@@ -97,15 +98,15 @@ class _RegistrationPage extends State<RegistrationPage> {
     final passwordFormSecond = passwordGlobalKeySecond.currentState!;
 
     // Checks if the currently entered e-mail and password are valid
-    if (emailForm.validate() &&
-        passwordForm.validate() &&
-        passwordFormSecond.validate()) {
-      setState(() => errorMsg = null);
-      if (passwordController.text.compareTo(passwordControllerSecond.text) !=
-          0) {
-        setState(() => errorMsg = "Die Passwörter stimmen nicht überein.");
-      } else {
-        Navigator.pushNamed(context, '/vocabularySets');
+    if (emailForm.validate()) {
+      setState(() => mailErrorMsg = null);
+      if (passwordForm.validate() && passwordFormSecond.validate()) {
+        setState(() => passwordErrorMsg = null);
+        if (passwordController.text.compareTo(passwordControllerSecond.text) != 0) {
+          setState(() => passwordErrorMsg = "Die Passwörter stimmen nicht überein.");
+        } else {
+          Navigator.pushNamed(context, '/vocabularySets');
+        }
       }
     }
   }

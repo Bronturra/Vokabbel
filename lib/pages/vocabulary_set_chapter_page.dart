@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello/widgets/sub_headline_page_widget.dart';
+import 'package:hello/widgets/page_headline_widget.dart';
 import 'package:hello/widgets/sub_headline_widget.dart';
 
 import '../modules.dart';
@@ -25,7 +25,7 @@ class _VocabularySetChapterPageState extends State<VocabularySetChapterPage> {
       body: Column(
         children: [
           const SubHeadlineWidget(text: "Spielerisch Sprachen lernen"),
-          const SubHeadlinePageWidget(text: "Kapitel auswählen"),
+          const PageHeadlineWidget(text: "Kapitel auswählen"),
           Expanded(
             child: ListView.builder(
               shrinkWrap: true,
@@ -41,7 +41,6 @@ class _VocabularySetChapterPageState extends State<VocabularySetChapterPage> {
                           child: ElevatedButton(
                             onPressed: () {
                               Navigator.of(context).pushNamed("/gameModeOverview");
-                              print("Clicked the Vocabulary Set!");
                             },
                             style: universalElevatedButtonStyle(),
                             child: Row(
@@ -51,7 +50,6 @@ class _VocabularySetChapterPageState extends State<VocabularySetChapterPage> {
                                 const SizedBox(width: 135.0),
                                 const Icon(
                                   Icons.arrow_forward,
-                                  color: Colors.indigoAccent,
                                 ),
                               ],
                             ),
