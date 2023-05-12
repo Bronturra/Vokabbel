@@ -46,7 +46,7 @@ class _VocabularySetChapterPageState extends State<VocabularySetChapterPage> {
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                universalElevatedButtonText("Kapitel $index"),
+                                universalElevatedButtonText("Kapitel ${index+1}"),
                                 const SizedBox(width: 135.0),
                                 const Icon(
                                   Icons.arrow_forward,

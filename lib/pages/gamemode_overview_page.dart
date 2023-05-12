@@ -27,25 +27,36 @@ class _GameModeOverviewPageState extends State<GameModeOverviewPage> {
           const SubHeadlineWidget(text: "Spielerisch Sprachen lernen"),
           const PageHeadlineWidget(text: "Spiel wählen:"),
           Expanded(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Column(
+              //crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 ElevatedButton.icon(
                   onPressed: () {
                     Navigator.of(context).pushNamed("/gameModeMemory");
                   },
                   icon: Icon(Icons.person), // Icon auswählen
-                  label: Text('Wörter Memory'), // Text für den Button
+                  label: Text('Memory-Modus'), // Text für den Button
                 ),
 
-                SizedBox(width: 24), // Abstand zwischen den Icons
+                SizedBox(height: 24), // Abstand zwischen den Icons
                 ElevatedButton.icon(
                   onPressed: () {
                     Navigator.of(context).pushNamed("/gameModeGuessing");
                   },
                   icon: Icon(Icons.bookmark_add_outlined), // Icon auswählen
                   label: Text('WWM-Modus'), // Text für den Button
+                ),
+                SizedBox(height: 50), // Abstand zwischen den Icons
+                ElevatedButton.icon(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("/gameModeGuessing");
+                  },
+                  icon: Icon(Icons.abc), // Icon auswählen
+                  label: Text('Testat-Modus'), // Text für den Button
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.purple,
+                  )
                 ),
               ],
             ),
